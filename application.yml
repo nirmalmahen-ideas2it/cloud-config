@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/nirmalmahen-ideas2it/config-repo.git
+          default-label: main
+logging:
+  level:
+    root: INFO
