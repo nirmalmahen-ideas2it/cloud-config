@@ -9,6 +9,5 @@ custom:
 management:
   endpoint:
     health:
-      group:
-        readiness:
-          include: none
+      validate-group-membership: false  # Disable validation for health groups
+
