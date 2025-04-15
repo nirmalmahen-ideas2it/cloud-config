@@ -59,10 +59,8 @@ management:
       probes:
         enabled: true
       group:
-        liveness:
-          include: livenessState
         readiness:
-          include: readinessState,db
+          include: none
     jhimetrics:
       enabled: true
   info:
