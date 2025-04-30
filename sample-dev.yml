@@ -1,4 +1,3 @@
 spring:
   datasource:
-    username: myFirstMicroService
-    password: mySecurePassword
+    url: jdbc:postgresql://localhost:5432/postgres
