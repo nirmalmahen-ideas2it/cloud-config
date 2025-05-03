@@ -1,3 +1,6 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/patientRecords
+    
+user-validation-client:
+  url: http://localhost:9090/api/auth
