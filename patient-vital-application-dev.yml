@@ -42,7 +42,7 @@ management:
 
 client-url:
   user-module: http://sample:9090/api/auth
-  patient-module: http://patientapplication:9090/api/auth
+  patient-module: http://patientapplication:9091/api/auth
 
 logging:
   level:
