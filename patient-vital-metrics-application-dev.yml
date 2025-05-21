@@ -1,0 +1,45 @@
+spring:
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+        tags:
+          - profile=${spring.profiles.active}
+          - version='@project.version@'
+          - git-version=${git.commit.id.describe:}
+          - git-commit=${git.commit.id.abbrev:}
+          - git-branch=${git.branch:}
+      host: localhost
+      port: 8500
+
+  data:
+    mongodb:
+      uri: mongodb://vitals_user:vitals_pass@localhost:27017/vitals
+    elasticsearch:
+      uris: http://localhost:9200
+      repositories:
+        enabled: true
+
+  cache:
+    type: redis
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 60000
+      password: ${redis.password}
+
+rabbitmq:
+  queue:
+    patient: patient-info-queue
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    root: INFO
+    com.ideas2it.training.patient: DEBUG
+

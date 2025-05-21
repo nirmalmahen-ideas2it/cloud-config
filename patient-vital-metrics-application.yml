@@ -1,0 +1,49 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${oauth.resourceserver.jwt.issueruri}
+
+  cloud:
+    consul:
+      discovery:
+        port: 9093
+        enabled: true
+        service-name: patientvitalmetricsapplication
+        health-check-path: /actuator/health
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+      config:
+        watch:
+          enabled: false
+
+  kafka:
+    bootstrap-servers: localhost:8082
+    consumer:
+      group-id: vital-sign-consumer-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+
+server:
+  port: 9093
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+jhipster:
+  clientApp:
+    name: 'Patient-Vital-Metrics-Microservice'
+
+springdoc:
+  swagger-ui:
+    oauth2-redirect-url: ${oauth.redirectUri}
+    oauth:
+      client-id: ${oauth.vitalsclient.clientid}
+      client-secret: ${oauth.vitalsclient.secret}  #Here, the secret is required for confidential clients
+      authorization-url: ${oauth.authUri}
+      token-url: ${oauth.provider.keycloak.tokenuri}
+      scope: openid
