@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    consul:
+      discovery:
+        port: 9095
+        enabled: true
+        health-check-path: /actuator/health
+        instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+        service-name: auth-api-gateway
+      config:
+        watch:
+          enabled: false
+
+jhipster:
+  clientApp:
+    name: 'authApiGatewayApp'
+
+server:
+  address: 0.0.0.0
+  port: 9095
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+

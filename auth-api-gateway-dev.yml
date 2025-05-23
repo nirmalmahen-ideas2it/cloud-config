@@ -1,0 +1,38 @@
+spring:
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+        tags:
+          - profile=${spring.profiles.active}
+          - version='@project.version@'
+          - git-version=${git.commit.id.describe:}
+          - git-commit=${git.commit.id.abbrev:}
+          - git-branch=${git.branch:}
+      host: localhost
+      port: 8500
+
+  cache:
+    type: redis
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 60000
+      password: ${redis.password}
+
+server:
+  port: 9095
+  # make sure requests the proxy uri instead of the server one
+  forward-headers-strategy: native
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    root: INFO
+    com.ideas2it.training.authgateway: DEBUG
+
