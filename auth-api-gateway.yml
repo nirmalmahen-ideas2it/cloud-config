@@ -86,9 +86,9 @@ springdoc:
         url: /patientvitalmetricsapplication/v3/api-docs
 
 keycloak:
-  realm: usersApp-relam ${keycloak.realm}
-  client-id: auth-gateway-client ${keycloak.clientId}
-  client-secret: WU1E3fzqAPzq2ickudcaW366xh91o2yq ${keycloak.clientSecret}
-  token-uri: http://localhost:7070/realms/usersApp-relam/protocol/openid-connect/token ${keycloak.tokenUri}
+  realm: ${keycloak.realm}
+  client-id: ${keycloak.clientId}
+  client-secret: ${keycloak.clientSecret}
+  token-uri: ${keycloak.tokenUri}
 
 
