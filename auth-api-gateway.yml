@@ -26,7 +26,7 @@ spring:
               args:
                 redis-rate-limiter.replenishRate: 10    # requests per second
                 redis-rate-limiter.burstCapacity: 20    # max burst
-                key-resolver: "#{@userJwtKeyResolver}"
+                key-resolver: "#{@ipKeyResolver}"
         - id: patientapplication
           uri: lb://patientapplication
           predicates:
@@ -36,7 +36,7 @@ spring:
               args:
                 redis-rate-limiter.replenishRate: 10    # requests per second
                 redis-rate-limiter.burstCapacity: 20    # max burst
-                key-resolver: "#{@userJwtKeyResolver}"
+                key-resolver: "#{@ipKeyResolver}"
         - id: patientvitalapplication
           uri: lb://patientvitalapplication
           predicates:
@@ -46,7 +46,7 @@ spring:
               args:
                 redis-rate-limiter.replenishRate: 10    # requests per second
                 redis-rate-limiter.burstCapacity: 20    # max burst
-                key-resolver: "#{@userJwtKeyResolver}"
+                key-resolver: "#{@ipKeyResolver}"
         - id: patientvitalmetricsapplication
           uri: lb://patientvitalmetricsapplication
           predicates:
@@ -57,7 +57,7 @@ spring:
               args:
                 redis-rate-limiter.replenishRate: 10    # requests per second
                 redis-rate-limiter.burstCapacity: 20    # max burst
-                key-resolver: "#{@userJwtKeyResolver}"
+                key-resolver: "#{@ipKeyResolver}"
 
 jhipster:
   clientApp:
