@@ -76,6 +76,8 @@ management:
 springdoc:
   swagger-ui:
     urls:
+      - name: gateway-application
+        url: /v3/api-docs
       - name: user-service
         url: /user-application/v3/api-docs
       - name: patient-service
