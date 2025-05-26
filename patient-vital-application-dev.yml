@@ -9,12 +9,12 @@ spring:
           - git-version=${git.commit.id.describe:}
           - git-commit=${git.commit.id.abbrev:}
           - git-branch=${git.branch:}
-      host: localhost
+      host: consul
       port: 8500
 
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/patientRecords
+    url: jdbc:postgresql://postgresql:5432/patientRecords
     username: ${spring.datasource.username}
     password: ${spring.datasource.username}
     hikari:
@@ -29,7 +29,7 @@ spring:
   cache:
     type: redis
     redis:
-      host: localhost
+      host: redis
       port: 6379
       timeout: 60000
       password: ${redis.password}
@@ -40,9 +40,6 @@ management:
       exposure:
         include: "*"
 
-client-url:
-  user-module: http://sample:9090/api/auth
-  patient-module: http://patientapplication:9091/api/auth
 
 logging:
   level:

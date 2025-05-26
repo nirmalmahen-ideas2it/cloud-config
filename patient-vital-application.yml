@@ -45,7 +45,7 @@ spring:
           enabled: false
 
   kafka:
-    bootstrap-servers: localhost:8082
+    bootstrap-servers: kafka:9190
 
 server:
   address: 0.0.0.0
