@@ -9,7 +9,7 @@ spring:
           - git-version=${git.commit.id.describe:}
           - git-commit=${git.commit.id.abbrev:}
           - git-branch=${git.branch:}
-      host: localhost
+      host: consul-1
       port: 8500
 
   datasource:
@@ -29,7 +29,7 @@ spring:
   cache:
     type: redis
     redis:
-      host: localhost
+      host: redis
       port: 6379
       timeout: 60000
       password: ${redis.password}
