@@ -48,7 +48,7 @@ spring:
                 redis-rate-limiter.burstCapacity: 20    # max burst
                 key-resolver: "#{@ipKeyResolver}"
         - id: patientvitalmetricsapplication
-          uri: lb://patientvitalmetricsapplication
+          uri: http://host.docker.internal:9093
           predicates:
             - Path=/api/audit-logs/**
             - Path=/api/patient-search/**
