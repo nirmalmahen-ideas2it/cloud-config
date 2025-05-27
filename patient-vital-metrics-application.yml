@@ -18,7 +18,7 @@ spring:
           enabled: false
 
   kafka:
-    bootstrap-servers: localhost:8082
+    bootstrap-servers: kafka:9102
     consumer:
       group-id: vital-sign-consumer-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
