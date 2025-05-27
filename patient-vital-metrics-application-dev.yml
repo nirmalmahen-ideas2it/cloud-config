@@ -12,7 +12,7 @@ spring:
           - git-version=${git.commit.id.describe:}
           - git-commit=${git.commit.id.abbrev:}
           - git-branch=${git.branch:}
-      host: host.docker.internal
+      host: localhost
       port: 8500
 
   data:
