@@ -6,6 +6,8 @@ spring:
     consul:
       discovery:
         prefer-ip-address: true
+        hostname: host.docker.internal
+        ip-address: host.docker.internal
         tags:
           - profile=${spring.profiles.active}
           - version='@project.version@'
