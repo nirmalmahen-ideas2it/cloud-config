@@ -19,8 +19,7 @@ spring:
         - id: user-application
           uri: lb://user-application
           predicates:
-            - Path=/api/users/**
-            - Path=/api/roles/**
+            - Path=/api/users/**,/api/roles/**
           filters:
             - name: RequestRateLimiter
               args:
