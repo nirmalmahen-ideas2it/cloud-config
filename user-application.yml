@@ -57,14 +57,25 @@ management:
 jhipster:
   clientApp:
     name: 'Jhipster-Microservice'
-
+    
 springdoc:
+  api-docs:
+    enabled: true
+    groups:
+      enabled: true
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  override-with-generic-response: false
+  show-actuator: true
+  cache:
+    disabled: true
+  paths-to-match: /**
   swagger-ui:
-    oauth2-redirect-url: ${oauth.redirectUri}
-    oauth:
-      client-id: ${oauth.clientId}
-      client-secret: ${oauth.clientSecret}  #Here, the secret is required for confidential clients
-      authorization-url: ${oauth.authUri}
-      token-url: ${oauth.tokenUri}
-      scope: openid
+    enabled: true
+    disable-swagger-default-url: true
+
+  # 👇 This ensures generated OpenAPI points to gateway, not Docker IP
+  servers:
+    - url: http://localhost:9095/user-application
+
 
