@@ -28,6 +28,15 @@ spring:
       port: 6379
       timeout: 60000
       password: ${redis.password}
+  rabbitmq:
+    host: rabbitmq         # Docker service name
+    port: 5672
+    username: guest         # or your actual user
+    password: guest         # or your actual password
+    listener:
+      simple:
+        retry:
+          enabled: true
 
 rabbitmq:
   queue:
