@@ -58,6 +58,8 @@ jhipster:
     name: 'Patient-Microservice'
 
 springdoc:
+  api-docs:
+    server-url: http://localhost:9095/patientapplication
   swagger-ui:
     oauth2-redirect-url: ${oauth.redirectUri}
     oauth:
