@@ -1,7 +1,12 @@
 spring:
   elasticsearch:
-    rest:
-      uris: http://elasticsearch:9200
+    uris: http://elasticsearch:9200
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+    mongodb:
+      uri: mongodb://vitals_user:vitals_pass@mongo:27017/vitals
   cloud:
     consul:
       discovery:
@@ -16,15 +21,6 @@ spring:
           - git-branch=${git.branch:}
       host: consul
       port: 8500
-
-  data:
-    mongodb:
-      uri: mongodb://vitals_user:vitals_pass@mongo:27017/vitals
-    elasticsearch:
-      uris: http://elasticsearch:9200
-      repositories:
-        enabled: true
-
   cache:
     type: redis
     redis:
@@ -47,4 +43,4 @@ logging:
   level:
     root: INFO
     com.ideas2it.training.patient: DEBUG
-
+    org.springframework.data.elasticsearch: DEBUG
